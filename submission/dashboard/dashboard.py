@@ -46,7 +46,7 @@ st.markdown("""
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #555;
-            color: black;
+            color: white;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -57,7 +57,7 @@ st.markdown("""
             text-align: left;
             font-size: 16px;
             margin-top: 10px;
-            color: black;
+            color: white;
         }
         .info div {
             margin-bottom: 8px;
