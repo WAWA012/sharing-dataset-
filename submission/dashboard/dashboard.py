@@ -46,7 +46,7 @@ st.markdown("""
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #555;
-            color: white;
+            color: black;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -194,13 +194,13 @@ with tab1:
             text-justify: inter-word;
             font-size: 20px;
             line-height: 1.6;
-            color: white; /* Ubah warna teks jadi putih */
+            color: black; /* Ubah warna teks jadi putih */
         }
         .centered-header {
             text-align: center;
             font-size: 24px;
             font-weight: bold;
-            color: white; /* Warna putih */
+            color: black; /* Warna putih */
         }
     </style>
 """, unsafe_allow_html=True)
