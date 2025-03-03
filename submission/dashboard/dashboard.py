@@ -57,7 +57,7 @@ st.markdown("""
             text-align: left;
             font-size: 16px;
             margin-top: 10px;
-            color: white;
+            color: black;
         }
         .info div {
             margin-bottom: 8px;
