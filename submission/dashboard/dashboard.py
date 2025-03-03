@@ -194,7 +194,7 @@ with tab1:
             text-justify: inter-word;
             font-size: 20px;
             line-height: 1.6;
-            color: black; /* Ubah warna teks jadi putih */
+            color: white; /* Ubah warna teks jadi putih */
         }
         .centered-header {
             text-align: center;
@@ -243,6 +243,7 @@ with tab2:
                 text-justify: inter-word;
                 font-size: 16px;
                 line-height: 1.6;
+                color: white; /* Ubah warna teks jadi putih */
             }
             .centered-header {
                 text-align: center;
@@ -288,6 +289,7 @@ with tab3:
                 text-justify: inter-word;
                 font-size: 16px;
                 line-height: 1.8;
+                color: white; /* Ubah warna teks jadi putih */
             }
             .centered-header {
                 text-align: center;
@@ -344,6 +346,7 @@ with tab4:
             text-justify: inter-word;
             font-size: 16px;
             line-height: 1.6;
+            color: white; /* Ubah warna teks jadi putih */
         }
         .centered-header {
             text-align: center;
