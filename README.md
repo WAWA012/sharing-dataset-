@@ -20,7 +20,6 @@ submission/
 │   │-- hour.csv
 │-- README.md
 │-- Readme.txt
-│-- Readme.txt
 │-- Submission_Jihankusumawardhani_Bike_Dataset
 │-- requirements.txt
 │-- url.txt
