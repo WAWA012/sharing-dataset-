@@ -7,7 +7,7 @@ import streamlit as st
 sns.set_theme(style='dark')
 
 # Load dataset
-dataset_bike = pd.read_csv("/mnt/data/main_data.csv")
+dataset_bike = pd.read_csv("submission?dashboard/main_data.csv")
 
 # Convert 'dateday' to datetime format
 dataset_bike['dateday'] = pd.to_datetime(dataset_bike['dateday'])
