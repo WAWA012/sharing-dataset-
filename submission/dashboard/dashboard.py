@@ -13,7 +13,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-## Creating Helper Functions
+# Creating Helper Functions
 def create_daily_users_df(df):
     return df.groupby('dateday').agg({
         'registered': 'sum',
@@ -38,7 +38,6 @@ all_df = pd.read_csv('submission/dashboard/main_data.csv')
 all_df['dateday'] = pd.to_datetime(all_df['dateday'])
 all_df.sort_values(by='dateday', inplace=True)
 all_df.reset_index(drop=True, inplace=True)
-
 st.markdown("""
     <style>
         .profile-header {
@@ -108,6 +107,7 @@ with st.sidebar:
 
     st.image(Image.open('submission/dashboard/user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 
+
     # Profile Details
     st.markdown("""
         <div class="info">
@@ -117,17 +117,51 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
 
-    # Sidebar Filter untuk Cuaca
-    weather_options = all_df["weathersit"].unique()  # Ambil semua kategori cuaca
-    selected_weather = st.sidebar.selectbox("Pilih kondisi cuaca:", weather_options)
+    st.markdown("""
+    <style>
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-box {
+            width: 70px;
+            height: 70px;
+            background-color: #f3f3f3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        .social-box img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 
-# Filter dataset berdasarkan cuaca yang dipilih
-filtered_df = all_df[all_df["weathersit"] == selected_weather]
+    <div class="social-container">
+        <!-- LinkedIn -->
+        <div class="social-box">
+            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+        <!-- LinkedIn -->
+        <div class="social-box">
+            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+        
+            
+""", unsafe_allow_html=True)
 
-# Menggunakan data yang sudah difilter
-main_df = filtered_df.copy()
+# Menggunakan seluruh data tanpa filter tanggal
+main_df = all_df.copy()
 
-# Calling Helper Functions dengan data yang sudah difilter
+# Calling Helper Functions
 daily_users_df = create_daily_users_df(main_df)
 casreg_pie = create_casreg_pie(main_df)
 sea_hour_df = create_grouped_df(main_df, 'season')
@@ -135,8 +169,6 @@ hr_hour_df = create_grouped_df(main_df, 'hour')
 wd_hour_df = create_grouped_df(main_df, 'workingday')
 weat_hour_df = create_grouped_df(main_df, 'weather')
 
-st.write("Data setelah difilter berdasarkan cuaca:")
-st.dataframe(main_df)
 
 # Making Title and Header for Dashboard
 st.title('Analysis Bike Sharing Dataset 🚲')
