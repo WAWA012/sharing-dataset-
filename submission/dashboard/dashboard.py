@@ -198,9 +198,6 @@ with tab1:
         }
     </style>
     """, unsafe_allow_html=True)
-    
-    # Subheader di tengah dengan warna putih
-    st.markdown("<p class='centered-header'>The Rationale Behind the Dashboard</p>", unsafe_allow_html=True)
 
 
     # Konten Indonesia
@@ -248,9 +245,6 @@ with tab2:
             }
         </style>
     """, unsafe_allow_html=True)
-
-    # Subheader di tengah
-    st.markdown("<p class='centered-header'>Overview of the Bike Sharing Dataset</p>", unsafe_allow_html=True)
 
     # Konten Indonesia
     st.markdown("""
@@ -302,9 +296,6 @@ with tab3:
         </style>
     """, unsafe_allow_html=True)
 
-    # Subheader di tengah
-    st.markdown("<p class='centered-header'>What Inquiries Need to Be Addressed?</p>", unsafe_allow_html=True)
-
     # Konten Indonesia
     st.markdown("""
     <p class="justify-text"><strong>Indonesia:</strong></p>
@@ -351,9 +342,6 @@ with tab4:
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Subheader di tengah
-    st.markdown("<p class='centered-header'>Daily Users</p>", unsafe_allow_html=True)
 
 # Konten Indonesia
     st.markdown("""
