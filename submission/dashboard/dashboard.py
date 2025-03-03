@@ -181,7 +181,6 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7= st.tabs([
     'The Rationale Behind the Dashboard', 'Overview of the Bike Sharing Dataset','What inquiries need to be addressed?', 'In-Depth Analytical Explanation', 'Inquiry 1', 'Inquiry 2', 'Inquiry 3'])
 
 with tab1:
-         # CSS untuk justify text & center subheader
 st.markdown("""
 <style>
     .justify-text {
