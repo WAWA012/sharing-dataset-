@@ -181,27 +181,28 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7= st.tabs([
     'The Rationale Behind the Dashboard', 'Overview of the Bike Sharing Dataset','What inquiries need to be addressed?', 'In-Depth Analytical Explanation', 'Inquiry 1', 'Inquiry 2', 'Inquiry 3'])
 
 with tab1:
-            # CSS untuk justify text & center subheader
-    st.markdown("""
-    <style>
-        .justify-text {
-            text-align: justify;
-            text-justify: inter-word;
-            font-size: 20px;
-            line-height: 1.6;
-            color: white; /* Ubah warna teks jadi putih */
-        }
-        .centered-header {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: white; /* Warna putih */
-        }
-    </style>
+         # CSS untuk justify text & center subheader
+st.markdown("""
+<style>
+    .justify-text {
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 20px;
+        line-height: 1.6;
+        color: white; /* Ubah warna teks jadi putih */
+    }
+    .centered-header {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: white; /* Warna putih */
+    }
+</style>
 """, unsafe_allow_html=True)
 
 # Subheader di tengah dengan warna putih
-    st.markdown("<p class='centered-header'>The Rationale Behind the Dashboard</p>", unsafe_allow_html=True)
+st.markdown("<p class='centered-header'>The Rationale Behind the Dashboard</p>", unsafe_allow_html=True)
+
 
     # Konten Indonesia
     st.markdown("""
