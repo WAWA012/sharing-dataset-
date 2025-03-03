@@ -40,7 +40,7 @@ all_df['hour'] = all_df['hour'].str.extract(r'(\d+)').astype(int)
 
 # Sidebar for Dashboard
 with st.sidebar:
-  st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
 
     # Profile Header
     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
