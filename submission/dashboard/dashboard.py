@@ -105,8 +105,8 @@ with st.sidebar:
     # Profile Header
     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
 
-    # Profile Picture
-    st.image(Image.open('user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
+    st.image(Image.open('submission/dashboard/user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
+
 
     # Profile Details
     st.markdown("""
