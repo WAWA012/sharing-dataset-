@@ -200,7 +200,7 @@ with tab1:
             text-align: center;
             font-size: 24px;
             font-weight: bold;
-            color: black; /* Warna putih */
+            color: white; /* Warna putih */
         }
     </style>
 """, unsafe_allow_html=True)
