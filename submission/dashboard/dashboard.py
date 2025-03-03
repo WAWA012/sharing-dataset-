@@ -5,72 +5,91 @@ import seaborn as sns
 import streamlit as st
 from PIL import Image
 
+# Creating Helper Functions
 def create_daily_users_df(df):
-    daily_users_df = df.resample(rule='D', on='dateday').agg({
+    return df.groupby('dateday').agg({
         'registered': 'sum',
         'casual': 'sum',
         'total': 'sum'
-    })
-    daily_users_df = daily_users_df.reset_index()
-    
-    return daily_users_df
+    }).reset_index()
 
 def create_casreg_pie(df):
-    casreg_pie = df[['casual', 'registered']].sum()
-    
-    return casreg_pie
+    return df[['casual', 'registered']].sum()
 
-def create_sea_hour_df(df):
-    sea_hour_df = df.groupby(by='season').agg({
-        'registered':'sum',
-        'casual':'sum',
-        'total':'sum'
-    }).sort_values(by='total', ascending=False)
-    
-    return sea_hour_df
-
-def create_hr_hour_df(df):
-    hr_hour_df = df.groupby(by='hour').agg({
-        'registered':'sum',
-        'casual':'sum',
-        'total':'sum'
+def create_grouped_df(df, group_col):
+    return df.groupby(by=group_col).agg({
+        'registered': 'sum',
+        'casual': 'sum',
+        'total': 'sum'
     }).sort_values(by='total', ascending=False)
 
-    return hr_hour_df
+# Load File as a DataFrame
+all_df = pd.read_csv('submission/dashboard/main_data.csv')
 
-def create_wd_hour_df(df): 
-    wd_hour_df = df.groupby(by='workingday').agg({
-        'registered':'sum',
-        'casual':'sum',
-        'total':'sum'
-    }).sort_values(by='total', ascending=False)
-    
-    return wd_hour_df
-
-def create_weat_hour_df(df):
-    weat_hour_df = df.groupby(by='weather').agg({
-        'registered':'sum',
-        'casual':'sum',
-        'total':'sum'
-    }).sort_values(by='total', ascending=False)
-
-    return weat_hour_df
-
-# Load File as a Dataframe
-
-all_df = pd.read_csv('main_data.csv')
-all_df_copy = pd.read_csv('main_data.csv')
-
-# dateday Sorting and Changing Data Type 
-all_df.sort_values(by='dateday', inplace=True)
-all_df.reset_index(inplace=True)
- 
+# Sorting & Changing Data Type
 all_df['dateday'] = pd.to_datetime(all_df['dateday'])
+all_df.sort_values(by='dateday', inplace=True)
+all_df.reset_index(drop=True, inplace=True)
+st.markdown("""
+    <style>
+        .profile-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #555;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .info {
+            text-align: left;
+            font-size: 16px;
+            margin-top: 10px;
+            color: white;
+        }
+        .info div {
+            margin-bottom: 8px;
+        }
+        .info span {
+            font-weight: bold;
+            color: white;
+        }
+        .sidebar-img {
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+            width: 100%;
+            max-width: 200px;
+        }
+        .social-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .linkedin-box {
+            background-color: #0077B5;
+        }
+        .github-box {
+            background-color: #24292E;
+        }
+        .social-box a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .social-box a:hover {
+            opacity: 0.8;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-# Making Filter for Dashboard
-
-min_date = all_df["dateday"].min()
-max_date = all_df["dateday"].max()
 # Sidebar for Dashboard
 with st.sidebar:
     st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
@@ -89,7 +108,9 @@ with st.sidebar:
             <div>🆔<span>:</span> jihankusumawardhani</div>
         </div>
     """, unsafe_allow_html=True)
-
+    min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
+    start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
+    
     st.markdown("""
     <style>
         .social-container {
@@ -113,11 +134,7 @@ with st.sidebar:
             height: 50px;
         }
     </style>
-    start_date, end_date = st.date_input(
-        label='Rentang Waktu',min_value=min_date,
-        max_value=max_date,
-        value=[min_date, max_date]
-    )
+
     <div class="social-container">
         <!-- LinkedIn -->
         <div class="social-box">
