@@ -349,7 +349,7 @@ with tab4:
             text-align: center;
             font-size: 24px;
             font-weight: bold;
-           color: white; /* Bisa diganti sesuai tema */
+           color: black; /* Bisa diganti sesuai tema */
         }
     </style>
 """, unsafe_allow_html=True)
