@@ -178,7 +178,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.image(Image.open('bike-dataset.jpeg'), width=700) 
+st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
+
 
 # Making Tabs for Dashboard
 tab1, tab2, tab3, tab4, tab5, tab6, tab7= st.tabs([
