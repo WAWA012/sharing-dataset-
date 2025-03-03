@@ -19,7 +19,7 @@ def rent_by_weather(df):
     rent_by_weather = df.groupby("weather").total_count.nunique().sort_values(ascending=False).reset_index()
     return rent_by_weather
 
-dataset_bike = pd.read_csv("dashboard/dataset_bike.csv")
+dataset_bike = pd.read_csv("submission/dashboard/main_data.csv")
 datetime_columns = ['date']
 dataset_bike.sort_values(by="date", inplace=True)
 dataset_bike.reset_index(inplace=True)
