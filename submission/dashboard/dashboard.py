@@ -140,7 +140,16 @@ with st.sidebar:
             height: 50px;
         }
     </style>
-
+    
+    min_date = all_df["order_date"].min()
+    max_date = all_df["order_date"].max()
+        
+        # Mengambil start_date & end_date dari date_input
+        start_date, end_date = st.date_input(
+            label='Rentang Waktu',min_value=min_date,
+            max_value=max_date,
+            value=[min_date, max_date]
+        )
     <div class="social-container">
         <!-- LinkedIn -->
         <div class="social-box">
