@@ -32,7 +32,7 @@ def create_grouped_df(df, group_col):
     }).sort_values(by='total', ascending=False)
 
 # Load File as a DataFrame
-all_df = pd.read_csv('main_data.csv')
+all_df = pd.read_csv('submission/dashboard/main_data.csv')
 
 # Sorting & Changing Data Type
 all_df['dateday'] = pd.to_datetime(all_df['dateday'])
