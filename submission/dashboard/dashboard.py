@@ -162,7 +162,7 @@ total_rentals = main_df['total'].sum()
 
 # Main title
 st.markdown("""
-    <h2 style="text-align: center; color: #800020;">📊 Analysis Bike Sharing Dataset 🚲</h2>
+    <h2 style="text-align: center; color: white;">📊 Analysis Bike Sharing Dataset 🚲</h2>
 """, unsafe_allow_html=True)
 
 # Display profile image
@@ -205,7 +205,7 @@ st.pyplot(plt)
 
 # Footer
 st.markdown("""
-    <h2 style="text-align: center; color: #800020;">✨ Welcome to my dashboard! ✨</h2>
+    <h2 style="text-align: center; color: white;">✨ Welcome to my dashboard! ✨</h2>
 """, unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
