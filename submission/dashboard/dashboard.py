@@ -150,7 +150,7 @@ with st.sidebar:
         </div>
         <!-- GitHub -->
         <div class="social-box">
-            <a href="https://github.com/" target="_blank">
+            <a href="https://github.com/WAWA012" target="_blank">
                 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
             </a>
         </div>
@@ -194,13 +194,97 @@ st.markdown("""
 
 st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 
-tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Hourly Trends", "Weather Impact", "Seasonal Trends"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
 
 with tab1:
-    st.subheader("Overview of Bike Sharing Data")
-    st.write("Dataset ini berisi informasi mengenai penyewaan sepeda berdasarkan hari dan jam.")
+    st.markdown("""
+    <style>
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 20px;
+            line-height: 1.6;
+            color: white; /* Ubah warna teks jadi putih */
+        }
+        .centered-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white; /* Warna putih */
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+
+    # Konten Indonesia
+    st.markdown("""
+        <p class="justify-text">
+        <strong>Indonesia:</strong> <br><br>
+        Tujuan dari pengembangan dashboard proyek akhir untuk analisis dataset sepeda ini adalah untuk memenuhi persyaratan proyek akhir dalam program pembelajaran Analisis Data dari Dicoding.  
+        Dashboard ini berfungsi sebagai platform komprehensif untuk menyajikan wawasan utama, tren, dan pola yang diperoleh dari dataset, memastikan pendekatan yang terstruktur dan berbasis data dalam pengambilan keputusan analitis.  
+        Dengan memanfaatkan berbagai teknik visualisasi data, dashboard ini secara efektif mengkomunikasikan temuan, memungkinkan pemahaman yang lebih mendalam dan interpretasi dataset yang lebih akurat.  
+        Selain itu, proyek ini bertujuan untuk meningkatkan keterampilan dalam pemrosesan data, visualisasi, dan interpretasi, memperkuat kemampuan analitis yang penting dalam pemecahan masalah berbasis data di dunia nyata.
+        </p>
+    """, unsafe_allow_html=True)
+
+    # Garis pembatas
+    st.markdown("##### ____________________________________________________________________")
+
+    # Konten English
+    st.markdown("""
+        <p class="justify-text">
+        <strong>English:</strong> <br><br>
+        The purpose of developing this final project dashboard for the Bike dataset analysis is to fulfill the requirements of the final project in the Data Analysis learning program from Dicoding.  
+        This dashboard serves as a comprehensive platform to present key insights, trends, and patterns derived from the dataset, ensuring a structured and data-driven approach to analytical decision-making.  
+        By utilizing various data visualization techniques, the dashboard effectively communicates findings, enabling deeper understanding and more informed interpretations of the dataset.  
+        Additionally, this project aims to enhance proficiency in data processing, visualization, and interpretation, reinforcing analytical skills essential for real-world data-driven problem-solving.
+        </p>
+    """, unsafe_allow_html=True)
 
 with tab2:
+    # CSS untuk justify text & center subheader
+    st.markdown("""
+        <style>
+            .justify-text {
+                text-align: justify;
+                text-justify: inter-word;
+                font-size: 16px;
+                line-height: 1.6;
+                color: white; /* Ubah warna teks jadi putih */
+            }
+            .centered-header {
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+                color: white; /* Bisa diganti sesuai tema */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    # Konten Indonesia
+    st.markdown("""
+        <p class="justify-text">
+        <strong>Indonesia:</strong> <br><br>
+        Dataset ini menyediakan catatan rinci tentang jumlah penggunaan sepeda sewaan, baik secara per jam maupun harian, dalam sistem Capital Bike Share.  
+        Data ini mencakup periode dari tahun 2011 hingga 2012 dan menyertakan informasi kontekstual yang relevan, seperti kondisi cuaca dan variasi musiman,  
+        yang dapat memengaruhi pola penyewaan sepeda.
+        </p>
+    """, unsafe_allow_html=True)
+
+    # Garis pembatas
+    st.markdown("##### ____________________________________________________________________")
+
+    # Konten English
+    st.markdown("""
+        <p class="justify-text">
+        <strong>English:</strong> <br><br>
+        This dataset provides detailed records of the number of rental bike usages, both on an hourly and daily basis, within the Capital Bike Share system.  
+        The data spans from 2011 to 2012 and includes relevant contextual information, such as weather conditions and seasonal variations,  
+        which may influence bike rental patterns.
+        </p>
+    """, unsafe_allow_html=True)
+
+with tab3:
     st.subheader("Hourly Rental Trends")
     plt.figure(figsize=(10, 5))
     sns.lineplot(x='hour', y='total', data=main_df, color='#800020', linewidth=2, marker='o', markerfacecolor='#800020')
@@ -208,7 +292,7 @@ with tab2:
     plt.ylabel("Total Penyewaan", fontsize=12, fontweight='bold', color="#800020")
     st.pyplot(plt)
 
-with tab3:
+with tab4:
     st.subheader("Impact of Weather on Rentals")
     plt.figure(figsize=(10, 5))
     sns.barplot(x='weather', y='total', data=main_df, palette=['#800020', '#A52A2A', '#D2691E', '#E97451'])
@@ -216,7 +300,7 @@ with tab3:
     plt.ylabel("Total Penyewaan", fontsize=12, fontweight='bold', color="#800020")
     st.pyplot(plt)
 
-with tab4:
+with tab5:
     st.subheader("Seasonal Rental Trends")
     plt.figure(figsize=(10, 5))
     sns.barplot(x='season', y='total', data=main_df, palette=['#800020', '#B22222', '#DC143C', '#E97451'])
