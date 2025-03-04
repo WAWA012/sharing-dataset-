@@ -52,7 +52,6 @@ with st.sidebar:
     min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
     start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
     selected_weather = st.selectbox("Pilih kondisi cuaca:", ['All'] + list(all_df['weather'].unique()))
-    selected_workingday = st.radio("Hari kerja atau libur?", ['All', 0, 1])
     
     # Filter dataset based on date range, weather, and working day
     main_df = all_df[(all_df['dateday'] >= pd.Timestamp(start_date)) & (all_df['dateday'] <= pd.Timestamp(end_date))]
