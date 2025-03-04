@@ -108,7 +108,7 @@ with st.sidebar:
             <div>📧 <span>:</span> jihankusumawwardhani@gmail.com</div>
             <div>🆔<span>:</span> jihankusumawardhani</div>
         </div>
-    """, unsafe_allow_html=True)
+    
     
     min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
     start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
@@ -118,8 +118,7 @@ with st.sidebar:
     main_df = all_df[(all_df['dateday'] >= pd.Timestamp(start_date)) & (all_df['dateday'] <= pd.Timestamp(end_date))]
     if selected_weather != 'All':
         main_df = main_df[main_df['weather'] == selected_weather]
-
-st.markdown("""
+        
     <style>
         .social-container {
             display: flex;
