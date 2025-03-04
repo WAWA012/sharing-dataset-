@@ -194,7 +194,7 @@ st.markdown("""
 
 st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
 
 with tab1:
     st.markdown("""
