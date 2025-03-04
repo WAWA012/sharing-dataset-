@@ -37,6 +37,11 @@ all_df.reset_index(drop=True, inplace=True)
 
 # Convert 'hour' to numeric format
 all_df['hour'] = all_df['hour'].str.extract(r'(\d+)').astype(int)
+import streamlit as st
+import pandas as pd
+from PIL import Image
+
+# Custom CSS untuk styling
 st.markdown("""
     <style>
         .profile-header {
@@ -47,9 +52,6 @@ st.markdown("""
             border-bottom: 2px solid #555;
             color: white;
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100%;
         }
         .info {
@@ -72,56 +74,6 @@ st.markdown("""
             width: 100%;
             max-width: 200px;
         }
-        .social-box {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .linkedin-box {
-            background-color: #0077B5;
-        }
-        .github-box {
-            background-color: #24292E;
-        }
-        .social-box a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        .social-box a:hover {
-            opacity: 0.8;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# Sidebar for Dashboard
-with st.sidebar:
-    st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
-    st.image(Image.open('submission/dashboard/user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
-
-    st.markdown("""
-        <div class="info">
-            <div>👤 <span>:</span> Jihan Kusumawardhani</div>
-            <div>📧 <span>:</span> jihankusumawwardhani@gmail.com</div>
-            <div>🆔<span>:</span> jihankusumawardhani</div>
-        </div>
-    
-    
-    min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
-    start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
-    selected_weather = st.selectbox("Pilih kondisi cuaca:", ['All'] + list(all_df['weather'].unique()))
-    
-    # Filter dataset based on date range, weather, and working day
-    main_df = all_df[(all_df['dateday'] >= pd.Timestamp(start_date)) & (all_df['dateday'] <= pd.Timestamp(end_date))]
-    if selected_weather != 'All':
-        main_df = main_df[main_df['weather'] == selected_weather]
-
-    """, unsafe_allow_html=True)
-    
-    <style>
         .social-container {
             display: flex;
             justify-content: center;
@@ -136,30 +88,81 @@ with st.sidebar:
             align-items: center;
             justify-content: center;
             text-align: center;
+            border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
         }
         .social-box img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+        }
+        .social-box a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
     </style>
+""", unsafe_allow_html=True)
 
+# Load dataset
+all_df = pd.read_csv("submission/dashboard/main_data.csv")
+
+# Convert 'dateday' to datetime
+all_df['dateday'] = pd.to_datetime(all_df['dateday'])
+
+# Sidebar for Dashboard
+with st.sidebar:
+    st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
+    
+    # Profile Picture
+    try:
+        st.image(Image.open("submission/dashboard/user.png"), use_column_width=True, caption="Profile Picture")
+    except:
+        st.warning("Gambar profil tidak ditemukan!")
+
+    # Profile Details
+    st.markdown("""
+        <div class="info">
+            <div>👤 <span>Nama:</span> Jihan Kusumawardhani</div>
+            <div>📧 <span>Email:</span> <a href="mailto:jihankusumawwardhani@gmail.com" style="color:white; text-decoration:none;">jihankusumawwardhani@gmail.com</a></div>
+            <div>🆔 <span>ID:</span> jihankusumawardhani</div>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Rentang Waktu
+    min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
+    start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
+    
+    # Filter berdasarkan cuaca
+    selected_weather = st.selectbox("Pilih kondisi cuaca:", ['All'] + list(all_df['weather'].unique()))
+    
+    # Filter dataset
+    main_df = all_df[(all_df['dateday'] >= pd.Timestamp(start_date)) & (all_df['dateday'] <= pd.Timestamp(end_date))]
+    if selected_weather != 'All':
+        main_df = main_df[main_df['weather'] == selected_weather]
+
+    # Sosial Media
+    st.markdown("""
     <div class="social-container">
         <!-- LinkedIn -->
         <div class="social-box">
-            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
+            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
             </a>
         </div>
-        <!-- LinkedIn -->
+        <!-- GitHub -->
         <div class="social-box">
-            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            <a href="https://github.com/" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
             </a>
         </div>
-        
-            
-""", unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
+
+# Menampilkan hasil filter
+st.subheader("Data setelah filter")
+st.write(main_df)
 
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
