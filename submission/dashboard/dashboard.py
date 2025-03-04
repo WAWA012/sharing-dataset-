@@ -37,15 +37,76 @@ all_df.reset_index(drop=True, inplace=True)
 
 # Convert 'hour' to numeric format
 all_df['hour'] = all_df['hour'].str.extract(r'(\d+)').astype(int)
+st.markdown("""
+    <style>
+        .profile-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #555;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .info {
+            text-align: left;
+            font-size: 16px;
+            margin-top: 10px;
+            color: white;
+        }
+        .info div {
+            margin-bottom: 8px;
+        }
+        .info span {
+            font-weight: bold;
+            color: white;
+        }
+        .sidebar-img {
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+            width: 100%;
+            max-width: 200px;
+        }
+        .social-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .linkedin-box {
+            background-color: #0077B5;
+        }
+        .github-box {
+            background-color: #24292E;
+        }
+        .social-box a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .social-box a:hover {
+            opacity: 0.8;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Sidebar for Dashboard
 with st.sidebar:
-    st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
-    st.image(Image.open('submission/dashboard/user.png'), use_column_width=True, caption="Profile Picture")
+     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
+    st.image(Image.open('submission/dashboard/user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
+
     st.markdown("""
         <div class="info">
-            <div>👤 <span>Nama:</span> Jihan Kusumawardhani</div>
-            <div>📧 <span>Email:</span> jihankusumawwardhani@gmail.com</div>
+            <div>👤 <span>:</span> Jihan Kusumawardhani</div>
+            <div>📧 <span>:</span> jihankusumawwardhani@gmail.com</div>
+            <div>🆔<span>:</span> jihankusumawardhani</div>
         </div>
     """, unsafe_allow_html=True)
     
@@ -58,25 +119,66 @@ with st.sidebar:
     if selected_weather != 'All':
         main_df = main_df[main_df['weather'] == selected_weather]
 
+st.markdown("""
+    <style>
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-box {
+            width: 70px;
+            height: 70px;
+            background-color: #f3f3f3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        .social-box img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+
+    <div class="social-container">
+        <!-- LinkedIn -->
+        <div class="social-box">
+            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+        <!-- LinkedIn -->
+        <div class="social-box">
+            <a href="https://www.linkedin.com/in/jihan-kusumawardhani-b43aaa343?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BziQ8j84iQy600UDtRm0t7Q%3D%3D" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+        
+            
+""", unsafe_allow_html=True)
+
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
 # Dashboard Header
-st.header("Bike Sharing Dashboard")
-st.metric("Total Penyewaan", value=total_rentals)
+st.header("Bike Sharing Dashboard.")
+st.metric("Total Penyewaan:", value=total_rentals)
 
 # Pie chart pengguna casual vs registered
-st.subheader("Perbandingan Pengguna Casual vs Registered")
+st.subheader("Perbandingan Antara Pengguna Casual dengan Registered:")
 casreg_pie = create_casreg_pie(main_df)
 fig, ax = plt.subplots()
-ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#FFBE98', '#A5DD9B'])
+ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#F5F5DC', '#800020'])
 ax.set_title("Distribusi Pengguna")
 st.pyplot(fig)
 
 # Plot daily rental trends
 st.subheader("Tren Penyewaan Harian")
 plt.figure(figsize=(10, 5))
-sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#A5DD9B')
+sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
 plt.xlabel("Tanggal")
 plt.ylabel("Total Penyewaan")
 st.pyplot(plt)
