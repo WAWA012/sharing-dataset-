@@ -118,7 +118,7 @@ with st.sidebar:
     # Profile Picture
     col1, col2, col3 = st.columns([1, 2, 1])  # Tengahin gambar
     with col2:
-        st.image("submission/dashboard/user.png", caption="Profile Picture", use_column_width=True)
+        st.image("submission/dashboard/user.png", caption="Profile Picture",use_container_width=True)
 
    
     # Profile Details
