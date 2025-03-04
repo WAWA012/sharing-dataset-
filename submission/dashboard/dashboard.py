@@ -190,7 +190,6 @@ with col1:
     casreg_pie = create_casreg_pie(main_df)
     fig, ax = plt.subplots(figsize=(4, 4))  # Perbesar ukuran figure biar gak terlalu kecil
     ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#800020', '#F5F5DC'])
-    ax.set_title("Distribusi Pengguna")
     st.pyplot(fig)
 
 with col2:
