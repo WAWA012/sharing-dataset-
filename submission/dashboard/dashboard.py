@@ -162,6 +162,7 @@ total_rentals = main_df['total'].sum()
 
 # Tabs for additional analysis
 st.title('Analysis Bike Sharing Dataset 🚲')
+st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 st.metric("Total Penyewaan:", value=total_rentals)
 
 # Pie chart pengguna casual vs registered
@@ -191,8 +192,6 @@ st.pyplot(plt)
 st.markdown("""
     <h2 style="text-align: center;">✨ Welcome to my dashboard! ✨</h2>
 """, unsafe_allow_html=True)
-
-st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
 
