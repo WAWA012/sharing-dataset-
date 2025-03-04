@@ -173,7 +173,7 @@ st.markdown(
     f"""
     <div style="display: flex; align-items: center; justify-content: center;">
         <h3 style="margin-right: 10px;">Total Penyewaan:</h3>
-        <h1 style="color: white; margin: 0;">{total_rentals}</h1>
+        <h3 style="color: white; margin: 0;">{total_rentals}</h3>
     </div>
     """,
     unsafe_allow_html=True
