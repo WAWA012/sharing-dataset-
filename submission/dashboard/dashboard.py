@@ -117,7 +117,7 @@ with st.sidebar:
     
     # Profile Picture
     try:
-        st.image(Image.open("submission/dashboard/user.png"), use_column_width=True, caption="Profile Picture")
+        st.image(Image.open("submission/dashboard/user.png"), caption="Profile Picture")
     except:
         st.warning("Gambar profil tidak ditemukan!")
 
