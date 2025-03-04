@@ -190,6 +190,13 @@ st.pyplot(plt)
 
 # Tabs for additional analysis
 st.title('Analysis Bike Sharing Dataset 🚲')
+
+st.markdown("""
+    <h2 style="text-align: center;">✨ Welcome to my dashboard! ✨</h2>
+""", unsafe_allow_html=True)
+
+st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
+
 tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Hourly Trends", "Weather Impact", "Seasonal Trends"])
 
 with tab1:
