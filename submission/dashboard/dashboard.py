@@ -161,7 +161,9 @@ with st.sidebar:
 total_rentals = main_df['total'].sum()
 
 # Main title
-st.title("📊 Analysis Bike Sharing Dataset 🚲")
+st.markdown("""
+    <h2 style="text-align: center; color: #800020;">📊 Analysis Bike Sharing Dataset 🚲</h2>
+""", unsafe_allow_html=True)
 
 # Display profile image
 st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Bike Sharing Dataset", output_format="JPEG")
