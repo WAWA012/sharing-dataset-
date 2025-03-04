@@ -26,7 +26,7 @@ submission/
 
 ```
 ## 🔧 Prerequisites
-Ensure you have Python 3.7+ installed. You can check your Python version by running:
+Ensure you have Python 3.7+ installed. You can check your Python version by running.
 ```
 python --version
 ```
