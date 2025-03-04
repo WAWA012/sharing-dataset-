@@ -160,37 +160,58 @@ with st.sidebar:
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
-# Tabs for additional analysis
-st.title('Analysis Bike Sharing Dataset 🚲')
-st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
-st.metric("Total Penyewaan:", value=total_rentals)
+import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
+from PIL import Image
 
-# Pie chart pengguna casual vs registered
-st.subheader("Perbandingan Antara Pengguna Casual dengan Registered:")
-casreg_pie = create_casreg_pie(main_df)
-fig, ax = plt.subplots()
-ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#800020', '#F5F5DC'])
-ax.set_title("Distribusi Pengguna")
-st.pyplot(fig)
+# Set page title
+st.set_page_config(page_title="Bike Sharing Analysis", layout="wide")
 
-# Plot daily rental trends
-st.subheader("Tren Penyewaan Harian")
+# Main title
+st.title("📊 Analysis Bike Sharing Dataset 🚲")
+
+# Display profile image
+st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Bike Sharing Dataset", output_format="JPEG")
+
+# Show total rentals metric in a more structured layout
+st.markdown("<h3 style='text-align: center;'>Total Penyewaan:</h3>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center; color: #800020;'>{total_rentals}</h1>", unsafe_allow_html=True)
+
+# Layout for visualizations
+col1, col2 = st.columns([1, 2])
+
+# Pie chart for user distribution
+with col1:
+    st.subheader("🔍 Perbandingan Pengguna Casual vs Registered")
+    casreg_pie = create_casreg_pie(main_df)
+    fig, ax = plt.subplots()
+    ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#800020', '#F5F5DC'])
+    ax.set_title("Distribusi Pengguna")
+    st.pyplot(fig)
+
+# Daily rental trends
+with col2:
+    st.subheader("📈 Tren Penyewaan Harian")
+    plt.figure(figsize=(10, 5))
+    sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
+    plt.xlabel("Tanggal")
+    plt.ylabel("Total Penyewaan")
+    plt.grid(alpha=0.3)
+    st.pyplot(plt)
+
+# Hourly rental distribution with improved color palette
+st.subheader("⏳ Distribusi Penyewaan per Jam")
 plt.figure(figsize=(10, 5))
-sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
-plt.xlabel("Tanggal")
-plt.ylabel("Total Penyewaan")
-st.pyplot(plt)
-
-# Plot hourly rental distribution
-st.subheader("Distribusi Penyewaan per Jam")
-plt.figure(figsize=(10, 5))
-sns.barplot(x='hour', y='total', data=main_df, palette='coolwarm')
+sns.barplot(x='hour', y='total', data=main_df, palette=['#800020', '#A52A2A', '#D2691E', '#F4A460'])
 plt.xlabel("Jam")
 plt.ylabel("Total Penyewaan")
+plt.grid(alpha=0.3)
 st.pyplot(plt)
 
+# Footer
 st.markdown("""
-    <h2 style="text-align: center;">✨ Welcome to my dashboard! ✨</h2>
+    <h2 style="text-align: center; color: #800020;">✨ Welcome to my dashboard! ✨</h2>
 """, unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
