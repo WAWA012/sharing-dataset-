@@ -116,15 +116,10 @@ with st.sidebar:
     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
     
     # Profile Picture
-    st.markdown(
-    """
-    <div style="display: flex; justify-content: center;">
-        <img src='submission/dashboard/user.png' style='width: 200px; border-radius: 10px;'>
-    </div>
-    <p style="text-align: center;">Profile Picture</p>
-    """,
-    unsafe_allow_html=True
-)
+    col1, col2, col3 = st.columns([1, 2, 1])  # Tengahin gambar
+    with col2:
+        st.image("submission/dashboard/user.png", caption="Profile Picture", use_column_width=True)
+
    
     # Profile Details
     st.markdown("""
