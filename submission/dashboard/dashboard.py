@@ -160,11 +160,6 @@ with st.sidebar:
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-from PIL import Image
-
 # Set page title
 st.set_page_config(page_title="Bike Sharing Analysis", layout="wide")
 
