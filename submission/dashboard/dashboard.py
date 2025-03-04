@@ -146,6 +146,11 @@ with st.sidebar:
     if selected_weather != 'All':
         main_df = main_df[main_df['weather'] == selected_weather]
 
+  st.markdown(
+    """<hr style="border: 1px solid #555; margin: 10px 0;">""",
+    unsafe_allow_html=True
+)
+    
     # Sosial Media
     st.markdown("""
     <div class="social-container">
