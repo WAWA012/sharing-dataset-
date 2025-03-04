@@ -129,8 +129,11 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("##### ____________________________________________________________________")
-    
+    st.markdown(
+    """<hr style="border: 1px solid #555; margin: 10px 0;">""",
+    unsafe_allow_html=True
+)
+
     # Rentang Waktu
     min_date, max_date = all_df['dateday'].min(), all_df['dateday'].max()
     start_date, end_date = st.date_input("Pilih Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
