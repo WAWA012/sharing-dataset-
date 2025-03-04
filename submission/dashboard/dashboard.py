@@ -160,9 +160,6 @@ with st.sidebar:
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
-# Set page title
-st.set_page_config(page_title="Bike Sharing Analysis", layout="wide")
-
 # Main title
 st.title("📊 Analysis Bike Sharing Dataset 🚲")
 
