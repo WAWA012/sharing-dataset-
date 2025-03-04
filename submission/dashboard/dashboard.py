@@ -43,7 +43,7 @@ from PIL import Image
 
 # Custom CSS untuk styling
 st.markdown("""
-    <style>
+   <style>
         .profile-header {
             font-size: 24px;
             font-weight: bold;
