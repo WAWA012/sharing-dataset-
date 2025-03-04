@@ -57,8 +57,6 @@ with st.sidebar:
     main_df = all_df[(all_df['dateday'] >= pd.Timestamp(start_date)) & (all_df['dateday'] <= pd.Timestamp(end_date))]
     if selected_weather != 'All':
         main_df = main_df[main_df['weather'] == selected_weather]
-    if selected_workingday in [0, 1]:
-        main_df = main_df[main_df['workingday'] == selected_workingday]
 
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
