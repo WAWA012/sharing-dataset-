@@ -188,7 +188,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     st.markdown("<h4>📊 Perbandingan Pengguna Casual vs Registered</h4>", unsafe_allow_html=True)
     casreg_pie = create_casreg_pie(main_df)
-    fig, ax = plt.subplots(figsize=(5, 4))  # Perbesar ukuran figure biar gak terlalu kecil
+    fig, ax = plt.subplots(figsize=(4, 4))  # Perbesar ukuran figure biar gak terlalu kecil
     ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#800020', '#F5F5DC'])
     ax.set_title("Distribusi Pengguna")
     st.pyplot(fig)
