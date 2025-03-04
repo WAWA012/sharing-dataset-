@@ -160,8 +160,8 @@ with st.sidebar:
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
-# Dashboard Header
-st.header("Bike Sharing Dashboard.")
+# Tabs for additional analysis
+st.title('Analysis Bike Sharing Dataset 🚲')
 st.metric("Total Penyewaan:", value=total_rentals)
 
 # Pie chart pengguna casual vs registered
@@ -187,9 +187,6 @@ sns.barplot(x='hour', y='total', data=main_df, palette='coolwarm')
 plt.xlabel("Jam")
 plt.ylabel("Total Penyewaan")
 st.pyplot(plt)
-
-# Tabs for additional analysis
-st.title('Analysis Bike Sharing Dataset 🚲')
 
 st.markdown("""
     <h2 style="text-align: center;">✨ Welcome to my dashboard! ✨</h2>
