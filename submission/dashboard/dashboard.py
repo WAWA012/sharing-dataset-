@@ -198,7 +198,7 @@ with col2:
     sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
     plt.xlabel("Tanggal")
     plt.ylabel("Total Penyewaan")
-    plt.grid(alpha=0.5)
+    plt.grid(alpha=0.1)
     st.pyplot(plt)
 
 # Distribusi Penyewaan per Jam
