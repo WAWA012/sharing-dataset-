@@ -333,4 +333,7 @@ with tab5:
     st.pyplot(plt)
     # Making a Caption
 
-st.caption("© 2025 Jihan Kusumawardhani. All Rights Reserved.")
+st.markdown(
+    "<p style='text-align: center; color: white;'>© 2025 Jihan Kusumawardhani. All Rights Reserved.</p>", 
+    unsafe_allow_html=True
+)
