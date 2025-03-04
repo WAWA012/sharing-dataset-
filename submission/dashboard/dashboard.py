@@ -116,9 +116,8 @@ with st.sidebar:
     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
     
     # Profile Picture
-    col1, col2, col3 = st.columns([1, 2, 1])  # Tengahin gambar
-    with col2:
-        st.image("submission/dashboard/user.png", caption="Profile Picture",use_container_width=True)
+      st.sidebar.image("submission/dashboard/user.png", caption="Profile Picture", use_column_width=True)
+
 
    
     # Profile Details
