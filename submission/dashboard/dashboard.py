@@ -159,11 +159,7 @@ with st.sidebar:
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-# Menampilkan hasil filter
-st.subheader("Data setelah filter")
-st.write(main_df)
-
+    
 # Calculate total rentals
 total_rentals = main_df['total'].sum()
 
