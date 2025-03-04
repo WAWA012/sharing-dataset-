@@ -116,11 +116,8 @@ with st.sidebar:
     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
     
     # Profile Picture
-    try:
      st.image(Image.open("submission/dashboard/user.png"), use_container_width=True, caption="Profile Picture")
-    except:
-        st.warning("Gambar profil tidak ditemukan!")
-
+   
     # Profile Details
     st.markdown("""
         <div class="info">
