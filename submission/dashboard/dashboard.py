@@ -186,9 +186,9 @@ col1, col2 = st.columns([1, 2])
 
 # Pie chart for user distribution
 with col1:
-    st.markdown("<h5>📊 Perbandingan Pengguna Casual vs Registered</h5>", unsafe_allow_html=True)
+    st.markdown("<h4>📊 Perbandingan Pengguna Casual vs Registered</h4>", unsafe_allow_html=True)
     casreg_pie = create_casreg_pie(main_df)
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 5))  # Perbesar ukuran figure biar gak terlalu kecil
     ax.pie(casreg_pie, labels=['Casual', 'Registered'], autopct='%1.1f%%', colors=['#800020', '#F5F5DC'])
     ax.set_title("Distribusi Pengguna")
     st.pyplot(fig)
