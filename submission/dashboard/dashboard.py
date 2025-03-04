@@ -194,11 +194,11 @@ with col1:
 
 with col2:
     st.subheader("📈 Tren Penyewaan Harian")
-    plt.figure(figsize=(8, 1))
+    plt.figure(figsize=(8, 4))
     sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
     plt.xlabel("Tanggal")
     plt.ylabel("Total Penyewaan")
-    plt.grid(alpha=0.3)
+    plt.grid(alpha=0.5)
     st.pyplot(plt)
 
 # Distribusi Penyewaan per Jam
