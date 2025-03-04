@@ -169,8 +169,14 @@ st.markdown("""
 st.image(Image.open('submission/dashboard/bike-dataset.jpeg'), use_container_width=True, caption="Bike Sharing Dataset", output_format="JPEG")
 
 # Show total rentals metric in a more structured layout
-st.markdown("<h3 style='text-align: center;'>Total Penyewaan:</h3>", unsafe_allow_html=True)
-st.markdown(f"<h1 style='text-align: center; color: white;'>{total_rentals}</h1>", unsafe_allow_html=True)
+col1, col2 = st.columns([1, 2])  # Atur ukuran kolom biar seimbang
+
+with col1:
+    st.markdown("<h3 style='text-align: right;'>Total Penyewaan:</h3>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown(f"<h1 style='text-align: left; color: white;'>{total_rentals}</h1>", unsafe_allow_html=True)
+
 
 # Layout for visualizations
 col1, col2 = st.columns([1, 2])
