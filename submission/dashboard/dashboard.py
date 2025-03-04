@@ -186,7 +186,7 @@ with col1:
 
 with col2:
     st.subheader("📈 Tren Penyewaan Harian")
-    plt.figure(figsize=(8, 4))
+    plt.figure(figsize=(7, 4))
     sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
     plt.xlabel("Tanggal")
     plt.ylabel("Total Penyewaan")
