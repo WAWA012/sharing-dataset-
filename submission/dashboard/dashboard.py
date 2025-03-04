@@ -72,7 +72,7 @@ st.markdown("""
             display: block;
             margin: auto;
             width: 100%;
-            max-width: 150px;
+            max-width: 200px;
         }
         .social-container {
             display: flex;
