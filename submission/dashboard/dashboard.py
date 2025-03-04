@@ -184,28 +184,30 @@ with col1:
     ax.set_title("Distribusi Pengguna")
     st.pyplot(fig)
 
-# Daily rental trends
 with col2:
     st.subheader("📈 Tren Penyewaan Harian")
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(10, 4))
     sns.lineplot(x='dateday', y='total', data=main_df, marker='o', color='#800020')
     plt.xlabel("Tanggal")
     plt.ylabel("Total Penyewaan")
     plt.grid(alpha=0.3)
     st.pyplot(plt)
 
-# Hourly rental distribution with improved color palette
+# Distribusi Penyewaan per Jam
 st.subheader("⏳ Distribusi Penyewaan per Jam")
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(12, 5))
 sns.barplot(x='hour', y='total', data=main_df, palette=['#800020', '#A52A2A', '#D2691E', '#F4A460'])
 plt.xlabel("Jam")
 plt.ylabel("Total Penyewaan")
+plt.xticks(rotation=45)  # Putar label supaya lebih terbaca
 plt.grid(alpha=0.3)
 st.pyplot(plt)
 
-# Footer
+# Footer Welcome Message
 st.markdown("""
-    <h2 style="text-align: center; color: white;">✨ Welcome to my dashboard! ✨</h2>
+    <div style="text-align: center; background-color: #800020; padding: 10px; border-radius: 10px; color: white;">
+        <h2>✨ Welcome to my dashboard! ✨</h2>
+    </div>
 """, unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["The Rationale Behind the Dashboard","Overview of the Bike Sharing Dataset", "Hourly Trends", "Weather Impact", "Seasonal Trends"]) 
