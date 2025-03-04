@@ -121,9 +121,9 @@ with st.sidebar:
     # Profile Details
     st.markdown("""
         <div class="info">
-            <div>👤 <span>Nama:</span> Jihan Kusumawardhani</div>
-            <div>📧 <span>Email:</span> <a href="mailto:jihankusumawwardhani@gmail.com" style="color:white; text-decoration:none;">jihankusumawwardhani@gmail.com</a></div>
-            <div>🆔 <span>ID:</span> jihankusumawardhani</div>
+            <div>👤 <span>:</span> Jihan Kusumawardhani</div>
+            <div>📧 <span>:</span> <a href="mailto:jihankusumawwardhani@gmail.com" style="color:white; text-decoration:none;">jihankusumawwardhani@gmail.com</a></div>
+            <div>🆔 <span>:</span> jihankusumawardhani</div>
         </div>
     """, unsafe_allow_html=True)
 
