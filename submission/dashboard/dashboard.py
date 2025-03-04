@@ -99,7 +99,7 @@ st.markdown("""
 
 # Sidebar for Dashboard
 with st.sidebar:
-     st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
+    st.markdown('<div class="profile-header">PROFILE INFORMATION</div>', unsafe_allow_html=True)
     st.image(Image.open('submission/dashboard/user.png'), use_container_width=True, caption="Profile Picture", output_format="JPEG")
 
     st.markdown("""
