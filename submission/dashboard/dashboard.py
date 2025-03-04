@@ -331,3 +331,6 @@ with tab5:
     plt.xlabel("Musim", fontsize=12, fontweight='bold', color="#800020")
     plt.ylabel("Total Penyewaan", fontsize=12, fontweight='bold', color="#800020")
     st.pyplot(plt)
+    # Making a Caption
+
+st.caption("© 2025 Jihan Kusumawardhani. All Rights Reserved.")
